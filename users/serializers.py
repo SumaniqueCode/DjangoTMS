@@ -4,6 +4,7 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
 
     password = serializers.CharField(write_only=True, required=False) #it has no validations
+    username = serializers.CharField(read_only=True)
 
     def create(self, validated_data):   #for password validation from user model
         password = validated_data.pop('password')
