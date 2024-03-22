@@ -29,6 +29,7 @@ urlpatterns = [
     path('', views.routeError),
     path('admin/', admin.site.urls),
     path('home/', views.index),
-    path('users/', userview.users)
+    path('users/', userview.users),
+    path('apis/', views.apis),
 ]
 
