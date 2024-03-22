@@ -12,3 +12,12 @@ def index(request):
 def routeError(request):
     error_message = "<h1>Page Not Found!</h1><h3> Go back to home.</h3> <a href ='/home'><button>Go back</button></a>"
     return HttpResponse(error_message)
+
+def apis(request):
+    Accounts="<a href='/api/accounts/'><button>Accounts API</button></a>"
+    Users="<a href='/api/accounts/users/'><button>User API</button></a>"
+
+    api_data = Accounts+Users
+
+    return HttpResponse(api_data)
+
