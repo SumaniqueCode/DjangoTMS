@@ -68,8 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.django.contex_processors.backends',
-                'social.django.contex_processors.login_redirect',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -125,9 +125,10 @@ REST_FRAMEWORK={
 }
 
 #Token based authentication Backends
-AUTHENTICATION_BACKENDS=(
-    'django.contrib.auth.backends.ModelBackend',
-    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+AUTHENTICATION_BACKENDS= (
+    'oauth2_provider.backends.OAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend'
+    # 'rest_framework_social_oauth2.backends.DjangoOAuth2',
 )
 
 
