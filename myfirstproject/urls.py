@@ -20,6 +20,7 @@ from first_app import views
 from users import views as userview
 from users import router as user_api_router
 from django.conf import settings
+from house import router as house_api_router
 
 auth_api_urls = [
     path(r'', include('rest_framework_social_oauth2.urls')),
@@ -29,7 +30,8 @@ if settings.DEBUG:
     auth_api_urls.append(path(r'verify/', include('rest_framework.urls')))
 api_url_patterns = [
     path(r'auth/', include(auth_api_urls)),
-    path(r'accounts/', include(user_api_router.router.urls))
+    path(r'accounts/', include(user_api_router.router.urls)),
+    path(r'houses/', include(house_api_router.router.urls))
 ]
 
 urlpatterns = [
