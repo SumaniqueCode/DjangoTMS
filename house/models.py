@@ -14,7 +14,6 @@ class GenerateHouseImage(object):
         name  = f'main.{ext}'
         return os.path.join(path, name)
 
-
 house_image_path = GenerateHouseImage()
 
 class House(models.Model):
@@ -28,3 +27,6 @@ class House(models.Model):
     points = models.IntegerField(default= 0)
     completed_task = models.IntegerField(default= 0)
     not_completed_task = models.IntegerField(default= 0)
+
+    def __str__(self):
+        return (f'{self.id} | {self.name}')
