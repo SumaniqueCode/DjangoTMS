@@ -18,7 +18,7 @@ user_profile_image_path= GenerateProfileImagePath()
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     image = models.ImageField(upload_to= user_profile_image_path, blank= True,  null= True)
-    house = models.ForeignKey('house.House', on_delete= models.SET_NULL, null= True, blank=True, related_name= "member")
+    house = models.ForeignKey('house.House', on_delete= models.SET_NULL, null= True, blank=True, related_name= "members")
 
     def __str__(self):
         return(f"{self.user.username}'s Profile")
