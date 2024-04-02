@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+
 from first_app import views
 from users import views as userview
 from users import router as user_api_router
@@ -42,4 +44,7 @@ urlpatterns = [
     path('users/', userview.users),
     path('apis/', views.apis),
 ]
+
+#For File Handling
+urlpatterns+= static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
