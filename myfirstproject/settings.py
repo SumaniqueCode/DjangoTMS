@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'first_app',
     'users',
     'house',
+    'tasks',
 ]
 
 MIDDLEWARE = [
