@@ -2,8 +2,8 @@ from rest_framework import serializers
 from .models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
-    created_by = serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name= 'profile-detail')
-    completed_by = serializers.HyperlinkedRelatedField(read_only= True, many= True, view_name='profile-detail')
+    created_by = serializers.HyperlinkedRelatedField(read_only=True, many=False, view_name= 'profile-detail')
+    completed_by = serializers.HyperlinkedRelatedField(read_only= True, many= False, view_name='profile-detail')
     
     class Meta:
         model = Task
