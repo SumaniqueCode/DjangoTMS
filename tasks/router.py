@@ -5,4 +5,4 @@ from .viewsets import TaskViewSets
 app_name = 'Task'
 
 router = routers.DefaultRouter()
-router.register('manage', TaskViewSets)
+router.register('task', TaskViewSets)
