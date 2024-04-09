@@ -35,7 +35,7 @@ class IsAttachmentManagerOrNor(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return True   
-        if not request.method.is_anonymous:
+        if not request.user.is_anonymous:
             return True
         
         return False

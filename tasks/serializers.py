@@ -6,18 +6,20 @@ class TaskListSerializer(serializers.ModelSerializer):
     #queryset provides the ability to change the house too.
     house = serializers.HyperlinkedRelatedField(queryset=House.objects.all(), many = False, view_name='house-detail')
     created_by = serializers.HyperlinkedRelatedField(read_only=True, many=False, view_name= 'profile-detail')
+    tasks = serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name='task-detail')
 
     class Meta:
         model = TaskList
-        fields = ['id','url', 'house', 'name', 'description','created_by','status', 'created_at', 'updated_at', 'completed_on',]
+        fields = ['id','url', 'house', 'name', 'description','created_by','status', 'created_at', 'updated_at', 'completed_on','tasks']
 class TaskSerializer(serializers.ModelSerializer):
     created_by = serializers.HyperlinkedRelatedField(read_only=True, many=False, view_name= 'profile-detail')
     completed_by = serializers.HyperlinkedRelatedField(read_only= True, many= False, view_name='profile-detail')
     task_list = serializers.HyperlinkedRelatedField(queryset=TaskList.objects.all(), many = False,view_name='tasklist-detail')
-    
+    attachments =serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name='attachments-detail')
     class Meta:
         model = Task
-        fields = ['id','url', 'task_list', 'name', 'description','status', 'created_by', 'completed_by', 'completed_at', 'created_at', 'updated_at',]
+        fields = ['id','url', 'task_list', 'name', 'description','status','attachments',
+                  'created_by', 'completed_by', 'completed_at', 'created_at', 'updated_at',]
         read_only_fields=['status','created_by', 'completed_by', 'completed_at',]
         
 class AttachmentSerializer(serializers.ModelSerializer):
