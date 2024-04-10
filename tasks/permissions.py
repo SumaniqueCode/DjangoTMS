@@ -30,7 +30,7 @@ class IsTaskManagerOrNot(permissions.BasePermission):
         
         return request.user.profile.house == obj.task_list.house
     
-class IsAttachmentManagerOrNor(permissions.BasePermission):
+class IsAttachmentManagerOrNot(permissions.BasePermission):
     """Custom permissions for attachments"""
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:

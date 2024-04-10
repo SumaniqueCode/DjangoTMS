@@ -2,7 +2,7 @@ from rest_framework import viewsets, mixins
 
 from .models import Task, TaskList, Attachments
 from .serializers import TaskSerializer, TaskListSerializer, AttachmentSerializer
-from .permissions import IsTaskListManagerOrNot, IsTaskManagerOrNot, IsAttachmentManagerOrNor
+from .permissions import IsTaskListManagerOrNot, IsTaskManagerOrNot, IsAttachmentManagerOrNot
 
 
 class TaskListViewSets(
@@ -37,4 +37,4 @@ class AttachmentViewSets(
 ):
     queryset = Attachments.objects.all()
     serializer_class = AttachmentSerializer
-    permission_classes = [IsAttachmentManagerOrNor,]
+    permission_classes = [IsAttachmentManagerOrNot,]
