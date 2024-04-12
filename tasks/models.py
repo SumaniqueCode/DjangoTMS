@@ -22,7 +22,7 @@ attachment_path = GenerateAttachmentPath()
 class TaskList(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    completed_on = models.DateTimeField(blank=True, null= True)
+    completed_at = models.DateTimeField(blank=True, null= True)
     created_by = models.ForeignKey('users.Profile', on_delete=models.SET_NULL, blank=True, null= True, related_name = 'lists')
     house = models.ForeignKey('house.House', on_delete=models.CASCADE, blank=True, null=True, related_name='lists')
     name = models.CharField(max_length=120)
