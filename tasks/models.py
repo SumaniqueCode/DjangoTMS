@@ -36,7 +36,7 @@ class TaskList(models.Model):
 class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    completed_at = models.DateField(blank=True, null=True)
+    completed_at = models.DateTimeField(blank=True, null=True)
     task_list = models.ForeignKey('tasks.TaskList', blank=True, null=True, on_delete=models.CASCADE, related_name='tasks')
     created_by = models.ForeignKey('users.profile', on_delete=models.SET_NULL, blank=True, null=True, related_name = 'created_task')
     completed_by = models.ForeignKey('users.Profile', on_delete=models.SET_NULL, blank=True, null=True, related_name= 'completed_task')
