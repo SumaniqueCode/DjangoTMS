@@ -1,3 +1,5 @@
+from django_filters.rest_framework import DjangoFilterBackend
+
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -11,6 +13,8 @@ class HouseViewSets(viewsets.ModelViewSet):
     queryset = House.objects.all()
     serializer_class = HouseSerializer
     permission_classes = [IsHouseManagerOrNot,]
+    filter_backends=[DjangoFilterBackend]
+    filterset_fields=['members',]
 
     @action(detail=True, methods=['post'], name='Join', permission_classes= []) 
     #Empty permission classes overrides the permission classes that are applied before
