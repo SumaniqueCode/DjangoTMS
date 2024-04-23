@@ -12,5 +12,5 @@ class HouseSerializer(serializers.ModelSerializer):
     class Meta:
         model = House
         fields = ['id', 'url', 'name', 'created_at', 'updated_at', 'description','members', 'member_count', 'manager', 'task_list',
-                  'points', 'completed_task', 'not_completed_task', 'image',]
-        read_only_fields= ['points', 'completed_task', 'not_completed_task']
+                  'points', 'completed_task', 'not_completed_task', 'image','created_at','updated_at',]
+        read_only_fields= ['points', 'completed_task', 'not_completed_task','created_at','updated_at',]
