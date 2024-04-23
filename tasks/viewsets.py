@@ -30,8 +30,9 @@ class TaskViewSets(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [IsTaskManagerOrNot,]
-    filter_backends = [ filters.SearchFilter, DjangoFilterBackend,]
+    filter_backends = [ filters.SearchFilter, DjangoFilterBackend,filters.OrderingFilter,]
     search_fields= ['name', 'status', 'description',]
+    ordering_fields=['name','status', 'updated_at', 'completed_at']
     filterset_fields = ['status',] 
 
     def get_queryset(self):
