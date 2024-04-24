@@ -162,3 +162,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #For FIle handling
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+# DEFAULT_FILE_STORAGE='storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME='google_console_bucket_name'
+# GS_FILE_OVERWRITE= True
+# GS_CREDENTIALS = service_accounts.Credentials.from_service_account_file('filename_from_Gcloud_IAM_serviceaccounts)
