@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'users',
     'house',
     'tasks',
+    'background_jobs',
 ]
 
 MIDDLEWARE = [
