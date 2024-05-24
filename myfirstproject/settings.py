@@ -43,12 +43,10 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'social_django',
     'rest_framework_social_oauth2',
-    'background_task',
     'first_app',
     'users',
     'house',
     'tasks',
-    'background_jobs',
 ]
 
 MIDDLEWARE = [
